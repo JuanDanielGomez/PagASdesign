@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ASdesign</title>
+        <link rel="icon" type="image/png" href="images/favicon.png"/> 
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/a478a0c715.js"></script>
+    </head>
+    <body>
+            <a href="index.html" class="back-arrow">
+                <i class="fas fa-arrow-circle-left"></i>
+            </a>
+                <div class="container top">
+                    <h2 class="portfolio_title"> Portafolio (Conoce nuestros proyectos)</h2>
+                </div>
+                <div class="container title">
+                    <h3 id="residencial">Proyectos residenciales</h3>
+                </div>
+                <section class="portfolio" id="p-residenciales">
+                        <div class="container">
+                            <article class="project">
+                                <figure class="project_imageContainer"> 
+                                        <img class="project_image" src="images/RESIDENCIAL/0/3.jpg" width="300" height="200"/>
+                                </figure>
+                                    <div class="project_detail">
+                                        <h3 class="project_title">Diseño​ de alcobas</h3>
+                                        <p class="project_date"><small><strong>Fecha: 2019</strong></small></p>  
+                                        <p class="project_description">Remodelacion o planeacion de alcobas para niños y adultos en residencias.</p>
+                                       <button class="btn b-residencial"  data-category="residencial">Ver más</button>
+                                    </div>
+                                </article>
+                            <article class="project">
+                                <figure class="project_imageContainer"> 
+                                        <img class="project_image" src="images/RESIDENCIAL/1/3.jpg" width="300" height="200"/>
+                                </figure>
+                                    <div class="project_detail">
+                                        <h3 class="project_title">Diseño​ de oficinas</h3>
+                                        <p class="project_date"><small><strong>Fecha: 2019</strong></small></p>  
+                                        <p class="project_description">Diseño​ de oficinas en espacios residenciales para trabajar desde la comodidad de tu casa.</p>
+                                       <button class="btn b-residencial" data-category="residencial">Ver más</button>
+                                    </div>
+                                </article>
+                            <article class="project">
+                                <figure class="project_imageContainer"> 
+                                        <img class="project_image" src="images/RESIDENCIAL/2/7.jpg" width="300" height="200"/>
+                                </figure>
+                                    <div class="project_detail">
+                                        <h3 class="project_title">Diseño​ de espacios auxiliares</h3>
+                                        <p class="project_date"><small><strong>Fecha: 2019</strong></small></p>  
+                                        <p class="project_description">Diseño​ de estudios y areas recreacionales en las residencias.</p>
+                                       <button class="btn b-residencial" data-category="residencial">Ver más</button>
+                                    </div>
+                                </article>
+                            <article class="project">
+                                <figure class="project_imageContainer"> 
+                                        <img class="project_image" src="images/RESIDENCIAL/3/19.jpg" width="300" height="200"/>
+                                </figure>
+                                    <div class="project_detail">
+                                        <h3 class="project_title">Diseño​ de areas principales</h3>
+                                        <p class="project_date"><small><strong>Fecha: 2019</strong></small></p>  
+                                        <p class="project_description">Interiorismo Residencial. Estudio, solución y desarrollo del espacio: Cocinas, salas de estar, comedor, etc.</p>
+                                       <button class="btn b-residencial" data-category="residencial">Ver más</button>
+                                    </div>
+                                </article>   
+                        </div>
+                </section>
+                <div class="container title">
+                    <h3 id="comercial">Proyectos Comerciales</h3>
+                </div>
+                <section class="portfolio" id="p-comerciales">
+                    <div class="container">
+                        <article class="project">
+                            <figure class="project_imageContainer"> 
+                                    <img class="project_image" src="images/COMERCIAL/0/1.jpg" width="300" height="200"/>
+                            </figure>
+                                <div class="project_detail">
+                                    <h3 class="project_title">Propuesta Sugar Cake</h3>
+                                    <p class="project_date"><small><strong>Fecha: 2019</strong></small></p>  
+                                    <p class="project_description">Propuesta de remodelacion total del local de Sugar Cake en Barranquilla.</p>
+                                   <button class="btn b-comercial" data-category="comercial">Ver más</button>
+                                </div>
+                            </article>
+                        <article class="project">
+                            <figure class="project_imageContainer"> 
+                                    <img class="project_image" src="images/COMERCIAL/1/1.jpg" width="300" height="200"/>
+                            </figure>
+                                <div class="project_detail">
+                                    <h3 class="project_title">Propuesta Radiologos Asociados</h3>
+                                    <p class="project_date"><small><strong>Fecha: 2019</strong></small></p>  
+                                    <p class="project_description">Propuesta de remodelacion de Radiologos y Asociados y la Unidad Medica del Country en Barranquilla.</p>
+                                   <button class="btn b-comercial" data-category="comercial">Ver más</button>
+                                </div>
+                            </article>
+                    </div>
+            </section>
+    <i class="fas fa-times" id="close-x"></i>
+                <div class="overlay" id="overlay">
+                    <i class="fas fa-angle-left angle-images a-left" id="arrow-container-l"></i>
+                    <i class="fas fa-angle-right angle-images a-right" id="arrow-container-r"></i>
+                </div>
+<script>
+var btnOverlayResidencial = document.getElementsByClassName('b-residencial')
+var btnOverlayComercial = document.getElementsByClassName('b-comercial')
+const closeX=document.getElementById('close-x');
+const overlay= document.getElementById('overlay');
+const arrowRight = document.getElementById('arrow-container-r')
+const arrowLeft = document.getElementById('arrow-container-l')
+var arrows = document.getElementsByClassName('angle-images')
+var URLImage=1
+var ID = 1
+var CATEGORY=""
+function overlayTemplate(id,URLImage,category){
+    return (
+            ` <div class="render">
+              <img src="images/${category}/${id}/${URLImage}.jpg" alt="">
+              <h6>${URLImage} / 20</h6>
+            </div>
+            `
+        )
+    
+}
+function createTemplate(HTMLString){
+    const html = document.implementation.createHTMLDocument();
+        html.body.innerHTML= HTMLString;
+        return html.body.children[0];
+}
+function modifyID(id){
+   ID=id
+}
+function modifyCategory(category){
+    CATEGORY= category
+}
+function modifyURL(){
+    URLImage=1
+}
+function renderOverlay(id,URLImage,category){
+    return function(){
+        modifyID(id)
+        modifyURL()
+        modifyCategory(category)
+        const HTMLString = overlayTemplate(id, URLImage,category)
+        const overlayHTML = createTemplate(HTMLString)
+        overlay.append(overlayHTML)
+        overlay.style.background="rgba(0,0,0,.8)"
+        overlay.classList.add('is-active')
+        closeX.classList.add('is-active')
+    }
+}
+function renderOverlayNext(id, URLImage,category){
+        overlay.children[2].remove()
+        const HTMLString = overlayTemplate(id, URLImage,category);
+        const overlayHTML = createTemplate(HTMLString)
+        overlay.append(overlayHTML)
+        overlay.style.background="rgba(0,0,0,.8)"
+        overlay.classList.add('is-active')
+        closeX.classList.add('is-active')
+}
+for (var i = 0; i< btnOverlayResidencial.length; i++){
+    btnOverlayResidencial[i].addEventListener('click', renderOverlay(i,1,'RESIDENCIAL'))
+}
+for (var i = 0; i< btnOverlayComercial.length; i++){
+    btnOverlayComercial[i].addEventListener('click', renderOverlay(i,1,'COMERCIAL'))
+}
+function increaseURL(){
+    return URLImage = URLImage + 1
+}
+function decreaseURL(){
+    if(URLImage>1){
+        return URLImage = URLImage - 1
+    }else{
+        return URLImage
+    }
+}
+arrowRight.addEventListener('click',()=>{
+       increaseURL()
+       renderOverlayNext(ID,URLImage,CATEGORY)  
+})
+arrowLeft.addEventListener('click',()=>{
+       decreaseURL()
+       renderOverlayNext(ID,URLImage,CATEGORY)    
+})
+
+closeX.addEventListener('click',()=>{
+    overlay.classList.remove('is-active')
+    closeX.classList.remove('is-active')
+    overlay.children[2].remove()
+    overlay.style.background="none"
+})
+
+</script>
+ </body>
+</html> 
